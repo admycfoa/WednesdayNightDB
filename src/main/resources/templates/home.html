@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+		<script>
+			$(function()
+			{
+				$.ajax
+				({
+					type: "POST",
+					url: "/season",
+					success: function(data)
+					{
+						$.each(data, function(index, value)
+						{
+							$("#season").append("<option value='" + value + "'>" + value + "</option>");
+						});
+					}
+				});
+				
+				$.ajax
+				({
+					type: "POST",
+					url: "/storytellername",
+					success: function(data)
+					{
+						$.each(data, function(index, value)
+						{
+							$("#storytellername").append("<option value='" + value + "'>" + value + "</option>");
+						});
+					}
+				});
+			});
+			
+			function Search()
+			{
+				$.ajax
+				({
+					type: "POST",
+					url: "/search",
+					contentType: "APPLICATION/JSON",
+					dataType: "JSON",
+					async: false,
+					data: JSON.stringify(
+					{
+						"season":          $("#season").val(),
+						"nightnumber":     $("#nightnumber").val(),
+						"storyname":       $("#storyname").val(),
+						"storytellername": $("#storytellername").val(),
+						"keyword":         $("#keyword").val(),
+						"storylength":     $("#storylength").val(),
+						"hadpicture":      $("#hadpicture").val()
+					}),
+					success: function(data)
+					{
+						$("#searchtable").DataTable
+						({
+							bAutoWidth: false,
+							destroy: true,
+							info: false,
+							order: false,
+							paging: false,
+							scrollY: 500,
+							searching: false,
+							data: data,
+							columnDefs:
+							[
+								{ data: "season",          targets: 0, "width": "10%" },
+								{ data: "nightnumber",     targets: 1, "width": "10%" },
+								{ data: "storyname",       targets: 2, "width": "50%" },
+								{ data: "storytellername", targets: 3, "width": "20%" },
+								{ data: null,              targets: 4, "width": "10%" }
+							],
+							createdRow: function(row, data, index)
+							{
+								youtubelink = $("td:eq(4)", row);
+								youtubelink.text("");
+								youtubelink.append($("<a href='https://www.youtube.com/watch?v=" + data.youtubelink + "' target='_blank'>คลิก</a>"));
+							}
+						});
+						$("#hiddenonce").css("visibility", "visible");
+					}
+				});
+				
+				$.ajax
+				({
+					type: "POST",
+					url: "/resultcnt",
+					success: function(data)
+					{
+						$("#resultcnt").text("ค้นพบผลลัพธ์จำนวน : " + data);
+					}
+				});
+			}
+		</script>
+		<style>
+			*
+			{
+				font-family: "Meiryo UI";
+			}
+			#latestupdate
+			{
+				border-radius: 0px 0px 10px 0px;
+				background-color: rgb(100, 100, 100);
+				border-right: 1px solid rgb(150, 150, 150);
+				border-bottom: 1px solid rgb(150, 150, 150);
+				color: rgb(255, 255, 255);
+				display: inline;
+				padding: 3px 4px 3px 4px;
+				pointer-events: none;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			#contactdeveloper
+			{
+				border-radius: 0px 0px 0px 10px;
+				background-color: rgb(100, 100, 100);
+				border-left: 1px solid rgb(150, 150, 150);
+				border-bottom: 1px solid rgb(150, 150, 150);
+				color: rgb(255, 255, 255);
+				display: inline;
+				padding: 3px 3px 3px 5px;
+				pointer-events: none;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			body
+			{
+				background-blend-mode: darken;
+				background-color: rgba(50, 50, 50, 0.5);
+				background-image: url("/background");
+				background-repeat: repeat-y;
+				background-size: cover;
+			}
+			h3
+			{
+				color: rgb(255, 255, 255);
+				padding: 10px 0px 5px 0px;
+				text-align: center;
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			#textborderwhite
+			{
+				text-shadow: -1px -1px 0 rgb(255, 255, 255),
+							  1px -1px 0 rgb(255, 255, 255),
+							 -1px  1px 0 rgb(255, 255, 255),
+							  1px  1px 0 rgb(255, 255, 255);
+			}
+			#textborderblack
+			{
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			#hiddenonce
+			{
+				visibility: hidden;
+			}
+			#resultcnt
+			{
+				color: rgb(255, 255, 255);
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			table
+			{
+				border-collapse: separate;
+				border-spacing: 0px;
+				table-layout: fixed;
+			}
+			th:first-child
+			{
+				border-radius: 10px 0px 0px 0px;
+			}
+			th:last-child
+			{
+				border-radius: 0px 10px 0px 0px;
+			}
+			tr:last-child td:first-child
+			{
+				border-radius: 0px 0px 0px 10px;
+			}
+			tr:nth-child(odd)
+			{
+				background-color: rgb(50, 220, 200);
+			}
+			tr:nth-child(even)
+			{
+				background-color: rgb(150, 220, 220);
+			}
+			th
+			{
+				background-color: rgb(50, 50, 50);
+				border: 1px solid rgb(150, 150, 150);
+				border-bottom: 0px;
+				color: rgb(255, 255, 255);
+				padding: 10px 0px 10px 0px;
+				text-align: center;
+				text-shadow: -1px -1px 0 rgb(0, 0, 0),
+							  1px -1px 0 rgb(0, 0, 0),
+							 -1px  1px 0 rgb(0, 0, 0),
+							  1px  1px 0 rgb(0, 0, 0);
+			}
+			td
+			{
+				border: 1px solid rgb(150, 150, 150);
+				padding: 10px 0px 10px 10px;
+			}
+			@media 
+			only screen and (max-width: 760px),
+			(min-device-width: 768px) and (max-device-width: 1024px)
+			{
+				#latestupdate
+				{
+					font-size: 70%;
+				}
+				#contactdeveloper
+				{
+					font-size: 70%;
+				}
+				h3
+				{
+					padding: 33px 0px 5px 0px;
+				}
+				tr:last-child td:first-child
+				{
+					border-radius: 0px 0px 0px 10px;
+				}
+				tr:last-child td:last-child
+				{
+					border-radius: 0px 0px 10px 0px;
+				}
+				th
+				{
+					font-size: 80%;
+					padding: 5px 2px 5px 2px;
+				}
+				td
+				{
+					font-size: 80%;
+					padding: 5px 2px 5px 2px;
+				}
+			}
+		</style>
+		<title>คืนพุธมุดผ้าห่ม DB</title>
+	</head>
+	<header>
+		<div th:text="'ติดต่อผู้พัฒนา : admycfoa@gmail.com'" id="contactdeveloper"></div>
+		<div th:text="'อัพเดทล่าสุดถึงซีซั่น ' + ${season} + ' คืนที่ '  + ${nightnumber}" id="latestupdate"></div>
+	</header>
+	<body>
+		<h3>คืนพุธมุดผ้าห่ม DB</h3>
+		<div class="container">
+			<form>
+				<div class="form-row">
+					<div class="input-group mb-3 col-md-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">ซีซั่น</span>
+						</div>
+						<select class="form-control" id="season">
+							<option value=""></option>
+						</select>
+					</div>
+					<div class="input-group mb-3 col-md-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">คืนที่</span>
+						</div>
+						<input class="form-control" type="text" id="nightnumber">
+					</div>
+					<div class="input-group mb-3 col-md-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">ชื่อเรื่อง</span>
+						</div>
+						<input class="form-control" type="text" id="storyname">
+					</div>
+					<div class="input-group mb-3 col-md-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">ชื่อผู้เล่า</span>
+						</div>
+						<select class="form-control" id="storytellername">
+							<option value=""></option>
+						</select>
+					</div>
+					<div class="input-group mb-3 col-md-8">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">คำสำคัญ</span>
+						</div>
+						<input class="form-control" type="text" id="keyword">
+					</div>
+					<div class="input-group mb-3 col-md-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">เรื่อง</span>
+						</div>
+						<select class="form-control" id="storylength">
+							<option value="2"></option>
+							<option value="1">สั้น</option>
+							<option value="0">ยาว</option>
+						</select>
+					</div>
+					<div class="input-group mb-3 col-md-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="textborderwhite">มีรูป</span>
+						</div>
+						<select class="form-control" id="hadpicture">
+							<option value="2"></option>
+							<option value="1">มี</option>
+							<option value="0">ไม่มี</option>
+						</select>
+					</div>
+				</div>
+			</form>
+			<button class="btn btn-primary mb-3" id="textborderblack" onclick="Search()">ค้นหา</button>
+			<div id="hiddenonce">
+				<div id="resultcnt"></div>
+	     		<table id="searchtable">
+	     			<thead>
+	     				<tr>
+	     					<th scope="col">ซีซั่น</th>
+		     				<th scope="col">คืนที่</th>
+		     				<th scope="col">ชื่อเรื่อง</th>
+		     				<th scope="col">ชื่อผู้เล่า</th>
+		     				<th scope="col">ลิงค์ยูทูป</th>
+	     				</tr>
+	     			</thead>
+	     		</table>
+     		</div>
+	     </div>
+	</body>
+</html>
