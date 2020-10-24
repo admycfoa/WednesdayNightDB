@@ -104,17 +104,4 @@ public class DataTableModel
 		this.hadpicture = hadpicture;
 		this.youtubelink = youtubelink;
 	}
-	
-	@Override
-	public String toString()
-	{
-		return " ซีซั่น = " + this.season +
-			           " คืนที่ = " + this.nightnumber +
-			           "   ชื่อเรื่อง = " + this.storyname +
-			           "   ชื่อผู้เล่า = " + this.storytellername +
-			           "   คำสำคัญ = " + this.keyword +
-			           "   ความยาว = " + this.storylength +
-			           "   มีรูป = " + this.hadpicture +
-			           "   ลิงค์ยูทูป = " + this.youtubelink;
-	}
 }
