@@ -1398,7 +1398,19 @@ public class HomeController
 		this.data.add(new DataTableModel("2","105","เรื่องจากคุณเส้นเล็ก","จ๊อบ","ไทย|เชียงใหม่|แอร์โฮสเตส|รถยนต์|GPS|เนวิเกเตอร์|อุบัติเหตุ|ศาลเพียงตา",563,"0","YQrqnT2mngU&t=6818"));
 		this.data.add(new DataTableModel("2","105","I can't fall a sleep, and nobody will wake up","ต้นกล้า","อิสระรีเควส|สหรัฐอเมริกา|เสียง|นอนหลับ|เวลา|ต่างมิติ|สัตว์ประหลาด|ปีศาจ",998,"0","YQrqnT2mngU&t=7468"));
 		this.data.add(new DataTableModel("2","105","The grinning man","ต้นกล้า","วิจัยผี|บ้าน|ถ่ายวีดีโอ|ถ่ายคลิป|ความฝัน",1251,"0","YQrqnT2mngU&t=8553"));
-
+		this.data.add(new DataTableModel("2","106","พยาบาล","ต้นกล้า","โรงพยาบาล|ศาลเจ้า|ร่างทรง|เจ้ากรรมนายเวร",395,"0","CbD37HlgAIQ&t=615"));
+		this.data.add(new DataTableModel("2","106","ร่างทรงจีน","ต้นกล้า","ร่างทรง|ผีเข้า|อุปทานหมู่|ต้นกล้าเจอ",54,"0","CbD37HlgAIQ&t=1046"));
+		this.data.add(new DataTableModel("2","106","ตุ๊กตาหมี","ต้นกล้า","ญี่ปุ่น|คุณยาย|ตุ๊กตา|แกล้ง|บูลลี่|Bully|ทะเล|ว่ายน้ำ",465,"0","CbD37HlgAIQ&t=1160"));
+		this.data.add(new DataTableModel("2","106","ดวงตก","ต้นกล้า","ไทย|ดวงตก|ห้องพัก|ห้องเช่า|เสียง|เปรต|ตู้เสื้อผ้า",608,"0","CbD37HlgAIQ&t=1708"));
+		this.data.add(new DataTableModel("2","106","ต้นกล้าดวงตก","ต้นกล้า","ญี่ปุ่น|ดวงตก|ศาลเจ้า|หิ้งพระ",114,"0","CbD37HlgAIQ&t=2421"));
+		this.data.add(new DataTableModel("2","106","รักต้องห้าม","ต้นกล้า","อินโดนีเซีย|หมอดู|ผีเข้า|ไสยศาสตร์|คุณไสย|โดนของ|น้ำมันพราย",1130,"0","CbD37HlgAIQ&t=2564"));
+		this.data.add(new DataTableModel("2","106","โดนของ","ต้นกล้า","หมอดู|ไสยศาสตร์|คุณไสย|โดนของ|เขมร|กัมพูชา",513,"0","CbD37HlgAIQ&t=3795"));
+		this.data.add(new DataTableModel("2","106","ถ้าตำรวจขอดูใบขับขี่ที่สุรินทร์","ต้นกล้า","ไทย|สุรินทร์|ไสยศาสตร์|คุณไสย|เขมร|กัมพูชา",29,"0","CbD37HlgAIQ&t=4385"));
+		this.data.add(new DataTableModel("2","106","พิธีกรรม","ต้นกล้า","พิธีกรรม|กระจก|เพลงคาโกเมะ|ดาวหกแฉก|เล่นซ่อนหา|เล่นซ่อนแอบ",887,"0","CbD37HlgAIQ&t=4455"));
+		this.data.add(new DataTableModel("2","106","คำถามทายใจ","ต้นกล้า","คำถามทายใจ|วัดความเป็นตัวเอง",1189,"0","CbD37HlgAIQ&t=5382"));
+		this.data.add(new DataTableModel("2","106","เรื่องจากคุณฟ้า","จ๊อบ","ไทย|ร้านสะดวกซื้อ|ห้องเก็บของ|ของขยับเอง|เสียง|กระจก|ศาลเจ้า|พระพุทธรูป|พิธีกรรม",809,"0","CbD37HlgAIQ&t=6576"));
+		this.data.add(new DataTableModel("2","106","แพนโดร่า","ต้นกล้า","ญี่ปุ่น|พิธีกรรม|หมู่บ้าน|บ้านร้าง|ล่าท้าผี|โต๊ะเครื่องแป้ง|กระจก|แพนโดร่า|ผีเข้า|จดหมาย|คำสาป|สาปแช่ง|คดีฆาตกรรม",1445,"0","CbD37HlgAIQ&t=7451"));
+		
 		model.addAttribute("season", this.data.get(this.data.size() - 1).getSeason());
 		model.addAttribute("nightnumber", this.data.get(this.data.size() - 1).getNightnumber());
 		
