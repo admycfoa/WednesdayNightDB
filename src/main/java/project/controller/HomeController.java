@@ -578,7 +578,7 @@ public class HomeController
 		this.data.add(new DataTableModel("1","41","ใครตายก่อน","หลุยส์ 1-FLOW","ใครตายก่อน",122,"0","BUiwrY8JzZs&t=3481"));
 		this.data.add(new DataTableModel("1","41","ยิ่งรู้ยิ่งขนลุก","ต้นกล้า","ยิ่งรู้ยิ่งขนลุก",1254,"0","BUiwrY8JzZs&t=3763"));
 		this.data.add(new DataTableModel("1","41","เรื่องจาก Ghost radio","จ๊อบ","ไทย|บริษัทขายเครื่องสูบน้ำ|ตกปลา|แตงโม",927,"0","BUiwrY8JzZs&t=5059"));
-		this.data.add(new DataTableModel("1","41","อุบัติเหตุหน้าสำนักงานรับทราบ","ต้นกล้า","ไทย|สำนักงาน|ออฟฟิศ|รับทราบ|อุบัติเหตุ",201,"0","BUiwrY8JzZs&t=5991"));
+		this.data.add(new DataTableModel("1","41","อุบัติเหตุหน้าสำนักงานรับทราบ","ต้นกล้า","ไทย|สำนักงาน|ออฟฟิศ|รับทราบ|บ้านต้นกล้า|อุบัติเหตุ",201,"0","BUiwrY8JzZs&t=5991"));
 		this.data.add(new DataTableModel("1","41","ตีกันตายคาหลัง","หลุยส์ 1-FLOW","สงกรานต์",201,"0","BUiwrY8JzZs&t=6193"));
 		this.data.add(new DataTableModel("1","41","ภูกระดึง","ต้นกล้า","ไทย|วัด|โกดัง|เสียง|โรงศพ",769,"0","BUiwrY8JzZs&t=6570"));
 		this.data.add(new DataTableModel("1","41","บวชเณร","ต้นกล้า","ไทย|วัด|บวช|ฉี่|ศาลพระภูมิ|เจ้าที่",437,"0","BUiwrY8JzZs&t=7490"));
@@ -1421,7 +1421,18 @@ public class HomeController
 		this.data.add(new DataTableModel("2","107","เรื่องจากคุณ Blight","จ๊อบ","ห้องพัก|ห้องเช่า|เสียง|บันไดหนีไฟ",477,"0","zkgeeU7vmZ4&t=5199"));
 		this.data.add(new DataTableModel("2","107","เล่าเรื่องผีที่ห้องเพื่อน","ต้นกล้า","ญี่ปุ่น|ห้องพัก|ห้องเช่า|เทียนร้อยเล่ม|เทียน 100 เล่ม|บันได|ตามกลับห้อง",1611,"0","zkgeeU7vmZ4&t=5754"));
 		this.data.add(new DataTableModel("2","107","ความมืด","ต้นกล้า","ญี่ปุ่น|ห้องพัก|ห้องเช่า|กลางป่า|ความมืด|เชือก",1382,"0","zkgeeU7vmZ4&t=7441"));
-
+		this.data.add(new DataTableModel("2","108","ตอนต่อของรักต้องห้าม","ต้นกล้า","ตอนต่อของเรื่องรักต้องห้ามคืนที่ 106|อินโดนีเซีย|ไสยศาสตร์|คุณไสย|โดนของ|เสียง",325,"0","vGikgeUOAI8&t=199"));
+		this.data.add(new DataTableModel("2","108","Pop up","ต้นกล้า","เว็บไซต์|แกล้ง|บูลลี่|Bully|คดีฆาตกรรม",670,"0","vGikgeUOAI8&t=543"));
+		this.data.add(new DataTableModel("2","108","Death note","ต้นกล้า","เวียดนาม|สงคราม|บันทึก|ทำนาย",307,"0","vGikgeUOAI8&t=1446"));
+		this.data.add(new DataTableModel("2","108","ผิวปาก","ต้นกล้า","ห้ามผิวปากตอนกลางคืน|เสียง",242,"0","vGikgeUOAI8&t=2069"));
+		this.data.add(new DataTableModel("2","108","ทะเล","ต้นกล้า","ญี่ปุ่น|จิตรกร|ห้องพัก|ห้องเช่า|ทะเล|รูปภาพ",477,"0","vGikgeUOAI8&t=2458"));
+		this.data.add(new DataTableModel("2","108","ขนมครกเปรี้ยว","จอร์จ","ไทย|สำนักงาน|ออฟฟิศ|รับทราบ|บ้านต้นกล้า",262,"0","vGikgeUOAI8&t=2951"));
+		this.data.add(new DataTableModel("2","108","จิ้งจอก","ต้นกล้า","ญี่ปุ่น|รถยนต์|GPS|เนวิเกเตอร์|อุบัติเหตุ|จิ้งจอก",595,"0","vGikgeUOAI8&t=3455"));
+		this.data.add(new DataTableModel("2","108","คำถามทายใจ","ต้นกล้า","คำถามทายใจ|วัดความเป็นตัวเอง|คำถามเลิฟๆ",1854,"0","vGikgeUOAI8&t=4111"));
+		this.data.add(new DataTableModel("2","108","1 แถม 2 แถมลดครึ่งราคา","เจง","ไทย|กรุงเทพ|ไลน์แมนสั่งอาหาร",554,"0","vGikgeUOAI8&t=6038"));
+		this.data.add(new DataTableModel("2","108","The beast","ต้นกล้า","บ้านปู่|ป่า|สัตว์ประหลาด|ปีศาจ|หน้าไหว้หลังหลอก|เสแสร้งแกล้งทำ",2305,"0","vGikgeUOAI8&t=6693"));
+		this.data.add(new DataTableModel("2","108","มรดก","ต้นกล้า","ญี่ปุ่น|รูปภาพ|ทวด",368,"0","vGikgeUOAI8&t=9135"));
+		
 		model.addAttribute("season", this.data.get(this.data.size() - 1).getSeason());
 		model.addAttribute("nightnumber", this.data.get(this.data.size() - 1).getNightnumber());
 		
